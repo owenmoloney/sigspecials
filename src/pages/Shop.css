@@ -1,0 +1,145 @@
+.shop-page {
+  display: flex;
+  min-height: calc(100vh - 200px);
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.shop-sidebar {
+  width: 25%;
+  flex-shrink: 0;
+  padding-right: 2rem;
+}
+
+.shop-sidebar h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 2rem;
+}
+
+.shop-content {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.shop-results {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.shop-sort {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shop-sort span {
+  font-size: 1rem;
+  color: #666;
+}
+
+.sort-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.filter-option:hover {
+  color: #000;
+}
+
+.filter-option input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.filter-option span {
+  user-select: none;
+}
+
+@media (max-width: 1024px) {
+  .shop-page {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .shop-sidebar {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .shop-content {
+    padding-left: 0;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-page {
+    padding: 2rem 1rem;
+  }
+
+  .shop-sidebar h2 {
+    font-size: 1.5rem;
+  }
+
+  .shop-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

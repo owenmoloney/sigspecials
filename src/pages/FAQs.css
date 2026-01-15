@@ -1,0 +1,135 @@
+.faqs-page {
+  min-height: calc(100vh - 200px);
+  padding: 3rem 0 0 0;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.faqs-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faqs-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.faqs-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.faqs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faqs-cta {
+  width: 100%;
+  margin: 0 auto;
+  padding: 14rem 2rem;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.faqs-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.faqs-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.faqs-cta h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: -8rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.faqs-cta p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.shop-now-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: #FF6000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.shop-now-button:hover {
+  background-color: #FF6000;
+  transform: translateY(-2px);
+}
+
+.shop-now-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .faqs-page {
+    padding: 2rem 1rem;
+  }
+
+  .faqs-header h1 {
+    font-size: 2rem;
+  }
+
+  .faqs-header p {
+    font-size: 1rem;
+  }
+
+  .faqs-cta {
+    padding: 2rem 1.5rem;
+  }
+
+  .faqs-cta h2 {
+    font-size: 2rem;
+  }
+
+  .faqs-cta p {
+    font-size: 1.1rem;
+  }
+
+  .shop-now-button {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+}
