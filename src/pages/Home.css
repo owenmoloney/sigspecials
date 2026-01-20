@@ -1,0 +1,130 @@
+.home {
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  padding: 0;
+  margin: 0;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100vw;
+  height: 700px;
+  overflow: hidden;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-position: 70% 20%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-active {
+  opacity: 1;
+  z-index: 1;
+  background-size: 100%;
+  animation: zoomIn 40s ease-out forwards;
+  transition: opacity 0.5s ease-in;
+}
+
+.slide:not(.slide-active) {
+  animation: none;
+  transition: opacity 0.5s ease-out;
+  /* Don't reset background-size - let it stay at whatever zoom level it reached */
+}
+
+@keyframes zoomIn {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 130%;
+  }
+}
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.slide-text {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.slideshow-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 3;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 0;
+}
+
+.indicator:hover {
+  transform: scale(1.2);
+}
+
+.indicator-active {
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .slideshow-container {
+    height: 400px;
+  }
+
+  .slide-text {
+    font-size: 1.75rem;
+  }
+
+  .slide-content {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slideshow-container {
+    height: 300px;
+  }
+
+  .slide-text {
+    font-size: 1.25rem;
+  }
+
+  .slide-content {
+    padding: 1rem;
+  }
+}
