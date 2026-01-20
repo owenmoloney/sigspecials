@@ -9,8 +9,11 @@ import Wishlist from './pages/Wishlist'
 import './styles/App.css'
 
 function App() {
+  // Use basename for GitHub Pages, empty for local development
+  const basename = import.meta.env.PROD ? '/sigspecials' : ''
+  
   return (
-    <Router>
+    <Router basename={basename}>
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
