@@ -4,6 +4,8 @@
   text-align: center;
   z-index: 1000;
   box-shadow: 0 2px 4px rgb(248, 248, 248);
+  margin-bottom: 0;
+  padding-bottom: 2.4rem;
 }
 
 .banner-content {

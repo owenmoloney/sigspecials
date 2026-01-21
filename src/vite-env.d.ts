@@ -1,5 +1,15 @@
 /// <reference types="vite/client" />
 
+interface ImportMetaEnv {
+  readonly MODE: string
+  readonly PROD: boolean
+  readonly DEV: boolean
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
+
 declare module '*.jpg' {
   const src: string
   export default src
