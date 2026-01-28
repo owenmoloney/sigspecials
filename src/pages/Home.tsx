@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import ProductCard from '@/components/ProductCard'
 // @ts-ignore
@@ -63,11 +63,63 @@ const Home = () => {
   // Each slide is 380px (360px width + 20px margin)
   const slideWidth = 380
   const [viewportWidth, setViewportWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200)
+  const [isSignatureVisible, setIsSignatureVisible] = useState(false)
+  const [isCustomLuresVisible, setIsCustomLuresVisible] = useState(false)
+  const [isProductsVisible, setIsProductsVisible] = useState(false)
+  const [isReviewsVisible, setIsReviewsVisible] = useState(false)
+  const [isCtaVisible, setIsCtaVisible] = useState(false)
+  const signatureRef = useRef<HTMLDivElement>(null)
+  const customLuresRef = useRef<HTMLDivElement>(null)
+  const productsRef = useRef<HTMLDivElement>(null)
+  const reviewsRef = useRef<HTMLDivElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
   
   useEffect(() => {
     const handleResize = () => setViewportWidth(window.innerWidth)
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Scroll animations for all sections
+  useEffect(() => {
+    const observerOptions = { threshold: 0.1 }
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target as HTMLElement
+            if (target === signatureRef.current) {
+              setIsSignatureVisible(true)
+            } else if (target === customLuresRef.current) {
+              setIsCustomLuresVisible(true)
+            } else if (target === productsRef.current) {
+              setIsProductsVisible(true)
+            } else if (target === reviewsRef.current) {
+              setIsReviewsVisible(true)
+            } else if (target === ctaRef.current) {
+              setIsCtaVisible(true)
+            }
+          }
+        })
+      },
+      observerOptions
+    )
+
+    const refs = [signatureRef, customLuresRef, productsRef, reviewsRef, ctaRef]
+    refs.forEach((ref) => {
+      if (ref.current) {
+        observer.observe(ref.current)
+      }
+    })
+
+    return () => {
+      refs.forEach((ref) => {
+        if (ref.current) {
+          observer.unobserve(ref.current)
+        }
+      })
+    }
   }, [])
   
   // Center the middle review (at index currentReviewPage + 1 in loopedReviews)
@@ -170,43 +222,49 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="signature-section">
+      <div ref={signatureRef} className="signature-section">
         <div className="signature-image-container">
           <img src={signatureLureImage} alt="Signature Lure" className="signature-image" />
         </div>
-        <div className="signature-content">
-          <h2 className="signature-heading">THE SIGNATURE LURE THAT'S CHANGING THE GAME</h2>
-          <p className="signature-text">
+        <div className={`signature-content ${isSignatureVisible ? 'animate-in' : ''}`}>
+          <h2 className={`signature-heading ${isSignatureVisible ? 'animate-in' : ''}`}>THE SIGNATURE LURE THAT'S CHANGING THE GAME</h2>
+          <p className={`signature-text ${isSignatureVisible ? 'animate-in' : ''}`}>
             Built by hand, tested on the water, and trusted by anglers who know the difference. At Sig Specials, we don't sell a hundred types of lures—we focus on perfecting one. Explore our styles and see what makes this lure a must-have in your tackle box.
           </p>
-          <Link to="/shop" className="learn-more-button">Learn More</Link>
+          <Link to="/shop" className={`learn-more-button ${isSignatureVisible ? 'animate-in' : ''}`}>Learn More</Link>
         </div>
       </div>
-      <div className="custom-lures-section">
+      <div ref={customLuresRef} className="custom-lures-section">
         <div 
           className="custom-lures-image"
           style={{ backgroundImage: `url(${homePage3Image})` }}
         >
           <div className="custom-lures-overlay">
-            <h2 className="custom-lures-heading">CUSTOM LURES, BUILT TO PERFORM</h2>
-            <p className="custom-lures-text">
+            <h2 className={`custom-lures-heading ${isCustomLuresVisible ? 'animate-in' : ''}`}>CUSTOM LURES, BUILT TO PERFORM</h2>
+            <p className={`custom-lures-text ${isCustomLuresVisible ? 'animate-in' : ''}`}>
               Forget the gimmicks. Our lures are made by a real fisherman who knows what works—because he's out there testing every design himself. Whether you're casting from shore, boat, or pier, Sig Specials delivers the action where it counts.
             </p>
-            <Link to="/shop" className="shop-now-button">Shop Now</Link>
+            <Link to="/shop" className={`shop-now-button ${isCustomLuresVisible ? 'animate-in' : ''}`}>Shop Now</Link>
           </div>
         </div>
       </div>
-      <div className="products-section">
-        <h2 className="products-heading">Our Products</h2>
+      <div ref={productsRef} className="products-section">
+        <h2 className={`products-heading ${isProductsVisible ? 'animate-in' : ''}`}>Our Products</h2>
         <div className="products-grid">
-          <ProductCard name="Oil Slick" price="$12.00" image={oilSlick} />
-          <ProductCard name="Orange Mamba" price="$12.00" image={orangeMamba} />
-          <ProductCard name="Blue Silver" price="$12.00" image={blueSilver} />
+          <div className={isProductsVisible ? 'animate-in' : ''} style={{ transitionDelay: '0.1s' }}>
+            <ProductCard name="Oil Slick" price="$12.00" image={oilSlick} />
+          </div>
+          <div className={isProductsVisible ? 'animate-in' : ''} style={{ transitionDelay: '0.2s' }}>
+            <ProductCard name="Orange Mamba" price="$12.00" image={orangeMamba} />
+          </div>
+          <div className={isProductsVisible ? 'animate-in' : ''} style={{ transitionDelay: '0.3s' }}>
+            <ProductCard name="Blue Silver" price="$12.00" image={blueSilver} />
+          </div>
         </div>
-        <Link to="/shop" className="view-all-button">View All Products</Link>
+        <Link to="/shop" className={`view-all-button ${isProductsVisible ? 'animate-in' : ''}`} style={{ transitionDelay: '0.4s' }}>View All Products</Link>
       </div>
-      <div className="reviews-section">
-        <h2 className="reviews-heading">Customer Reviews</h2>
+      <div ref={reviewsRef} className="reviews-section">
+        <h2 className={`reviews-heading ${isReviewsVisible ? 'animate-in' : ''}`}>Customer Reviews</h2>
         <div className="reviews-container">
           <div 
             className={`reviews-grid ${isDragging ? 'dragging' : ''}`}
@@ -259,14 +317,14 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="cta-section" style={{ backgroundImage: `url(${decorBg1})` }}>
+      <div ref={ctaRef} className="cta-section" style={{ backgroundImage: `url(${decorBg1})` }}>
         <div className="cta-container">
           <div className="cta-left">
-            <h2 className="cta-heading">Looking for something special?</h2>
-            <p className="cta-text">Custom styles, bulk orders, or wholesale inquiries—we've got you covered.</p>
+            <h2 className={`cta-heading ${isCtaVisible ? 'animate-in' : ''}`}>Looking for something special?</h2>
+            <p className={`cta-text ${isCtaVisible ? 'animate-in' : ''}`}>Custom styles, bulk orders, or wholesale inquiries—we've got you covered.</p>
           </div>
           <div className="cta-right">
-            <Link to="/contact-us" className="cta-button">
+            <Link to="/contact-us" className={`cta-button ${isCtaVisible ? 'animate-in' : ''}`}>
               <span className="cta-button-icon">→</span>
               <span className="cta-button-text">Get Started Today</span>
             </Link>

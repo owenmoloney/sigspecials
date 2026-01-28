@@ -249,6 +249,15 @@
   color: #000;
   margin: 0;
   line-height: 1.2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.signature-heading.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
 }
 
 .signature-text {
@@ -256,6 +265,15 @@
   line-height: 1.7;
   color: #333;
   margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.signature-text.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
 }
 
 .learn-more-button {
@@ -264,6 +282,15 @@
   background-color: #FF6000;
   color: #fff;
   text-decoration: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.learn-more-button.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 4px;
@@ -358,14 +385,32 @@
   margin: 0 0 1.5rem 0;
   line-height: 1.2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.custom-lures-heading.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
 }
 
 .custom-lures-text {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #ffffff;
+  color: #ffffff !important;
   margin: 0 0 2rem 0;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.custom-lures-text.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
 }
 
 .shop-now-button {
@@ -377,8 +422,16 @@
   font-weight: 600;
   font-size: 1rem;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.8s ease-out, transform 0.8s ease-out;
   width: fit-content;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.shop-now-button.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
 }
 
 .shop-now-button:hover {
@@ -418,7 +471,7 @@
 
   .custom-lures-text {
     font-size: 1rem;
-    color: #ffffff;
+    color: #ffffff !important;
   }
 }
 
@@ -441,6 +494,7 @@
   .custom-lures-text {
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
+    color: #ffffff !important;
   }
 
   .shop-now-button {
@@ -464,6 +518,15 @@
   color: #000;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.products-heading.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
 }
 
 .products-grid {
@@ -474,6 +537,17 @@
   width: 100vw;
   margin-left: calc(-50vw + 50% + 13.5%);
   margin-right: calc(-50vw + 50% - 5%);
+}
+
+.products-grid > div {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.products-grid > div.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .products-section .product-card {
@@ -503,7 +577,7 @@
 .view-all-button {
   display: block;
   width: fit-content;
-  margin: 0 auto;
+  margin: 3rem auto 0;
   padding: 0.875rem 2rem;
   background-color: #FF6000;
   color: #fff;
@@ -511,10 +585,15 @@
   font-weight: 600;
   font-size: 1rem;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.8s ease-out, transform 0.8s ease-out;
   text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 0;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.view-all-button.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .view-all-button:hover {
@@ -578,6 +657,15 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reviews-heading.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
 }
 
 .reviews-container {
@@ -867,6 +955,15 @@
   margin-bottom: 1.5rem;
   line-height: 1;
   text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cta-heading.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
 }
 
 .cta-text {
@@ -874,6 +971,15 @@
   color: #ffffff !important;
   line-height: 1.6;
   margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cta-text.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
 }
 
 .cta-right {
@@ -893,7 +999,15 @@
   font-size: 1.2rem;
   font-weight: 600;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.cta-button.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
   
 }
 

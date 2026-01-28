@@ -87,7 +87,7 @@ const Shop = () => {
       </div>
       <div className="shop-content">
         <div className="shop-header">
-          <p className="shop-results">Showing all 9 results</p>
+          <p className="shop-results">Showing all {products.length} results</p>
           <div className="shop-sort">
             <span>Sorted by latest</span>
             <select
