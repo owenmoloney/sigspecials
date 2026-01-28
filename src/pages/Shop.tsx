@@ -102,7 +102,7 @@ const Shop = () => {
             </select>
           </div>
         </div>
-        <div className="products-grid">
+        <ul className="products-grid">
           {products.map((product, index) => (
             <ProductCard
               key={index}
@@ -111,7 +111,7 @@ const Shop = () => {
               image={product.image}
             />
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   )

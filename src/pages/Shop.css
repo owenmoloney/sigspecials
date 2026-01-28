@@ -5,12 +5,17 @@
   max-width: 1400px;
   margin: 0 auto;
   gap: 3rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .shop-sidebar {
   width: 25%;
   flex-shrink: 0;
   padding-right: 2rem;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .shop-sidebar h2 {
@@ -23,6 +28,9 @@
 .shop-content {
   flex: 1;
   padding-left: 2rem;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 .shop-header {
@@ -69,7 +77,12 @@
 .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .filter-options {
@@ -106,6 +119,7 @@
   .shop-page {
     flex-direction: column;
     gap: 2rem;
+    padding: 2rem 1.5rem;
   }
 
   .shop-sidebar {
